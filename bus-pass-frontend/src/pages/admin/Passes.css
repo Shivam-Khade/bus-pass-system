@@ -1,0 +1,61 @@
+/* Admin Passes CSS */
+
+.passes-container {
+    padding-bottom: 3rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.pass-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--color-border) !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.pass-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--user-primary) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.pass-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--admin-gradient);
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pass-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.detail-icon {
+    color: var(--text-secondary);
+}
+
+.pass-modal-content {
+    padding: 1rem;
+}
+
+.modal-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--admin-gradient);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+}

@@ -1,0 +1,143 @@
+/* SosAlerts CSS */
+
+.sos-container {
+    padding-bottom: 3rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.table-card {
+    background: var(--color-bg-card-solid) !important;
+    border: 1px solid var(--color-border) !important;
+    overflow: hidden;
+}
+
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(239, 68, 68, 0.05);
+    /* Slight red tint for emergency context */
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Map modal fix for dark mode */
+.leaflet-container {
+    background: #e5e7eb;
+}
+
+/* Hide mobile view on desktop */
+.mobile-view {
+    display: none;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .sos-container {
+        padding-bottom: 2rem;
+    }
+
+    /* Make header groups wrap on mobile */
+    .mantine-Group-root {
+        flex-wrap: wrap;
+        gap: 0.75rem !important;
+    }
+
+    /* Make container padding smaller on mobile */
+    .mantine-Container-root {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Hide table on mobile, show card layout instead */
+    .table-card .mantine-Table-table {
+        display: none;
+    }
+
+    /* Show mobile view on mobile */
+    .mobile-view {
+        display: block;
+    }
+
+    .table-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .table-toolbar>* {
+        width: 100%;
+    }
+
+    /* Mobile card layout */
+    .mobile-sos-card {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .mobile-sos-card:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-sos-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    .mobile-sos-card.active {
+        background: rgba(239, 68, 68, 0.05);
+    }
+
+    .mobile-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .mobile-card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .mobile-card-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .mobile-card-label {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+    }
+
+    .mobile-card-actions {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+    .mantine-Table-thead tr th,
+    .mantine-Table-tbody tr td {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .table-toolbar {
+        gap: 0.5rem;
+    }
+}

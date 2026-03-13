@@ -1,0 +1,111 @@
+/* Profile CSS */
+
+.profile-container {
+    padding-bottom: 3rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.profile-title {
+    text-align: center;
+    background: var(--user-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--color-border) !important;
+    overflow: hidden;
+    position: relative;
+    padding-top: 0 !important;
+}
+
+.profile-card.modal-mode {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    /* Removed padding-bottom: 0 to allow natural spacing */
+}
+
+.profile-header {
+    position: relative;
+    height: 180px;
+    margin-bottom: 0.5rem;
+}
+
+.profile-card.modal-mode .profile-header {
+    height: 160px;
+    /* Tighter for smaller avatar */
+    margin-bottom: 0;
+}
+
+.profile-cover {
+    height: 120px;
+    background: var(--user-gradient);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    opacity: 0.8;
+}
+
+.profile-card.modal-mode .profile-cover {
+    height: 100px;
+}
+
+.profile-avatar-wrapper {
+    position: absolute;
+    top: 60px;
+    /* Starts halfway down the cover (120/2) */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.profile-card.modal-mode .profile-avatar-wrapper {
+    top: 50px;
+    /* Starts halfway down smaller cover (100/2) */
+}
+
+.profile-avatar {
+    border: 4px solid #1a1b1e;
+    /* Match card bg dark color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: #1a1b1e;
+}
+
+.edit-avatar-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 2px solid #1a1b1e;
+}
+
+.profile-details {
+    padding: 0 2rem;
+}
+
+.profile-card.modal-mode .profile-details {
+    padding: 0 1.5rem;
+    /* Add specific horizontal padding for modal */
+}
+
+.detail-icon {
+    color: var(--user-primary-light);
+    margin-right: 1rem;
+    background: rgba(124, 92, 252, 0.1);
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .profile-details {
+        padding: 0 0.5rem;
+    }
+}

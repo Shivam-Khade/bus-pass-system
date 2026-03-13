@@ -1,0 +1,195 @@
+/* Admin Users CSS */
+
+.users-container {
+    padding-bottom: 3rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.table-card {
+    background: var(--color-bg-card-solid) !important;
+    border: 1px solid var(--color-border) !important;
+    overflow: hidden;
+}
+
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.02);
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.mantine-Table-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.mantine-Table-thead tr th {
+    background: rgba(255, 255, 255, 0.04) !important;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.mantine-Table-tbody tr td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* First column (Name) header should be centered with data */
+.mantine-Table-thead tr th:first-child {
+    text-align: center;
+}
+
+/* First column (Name) cells should be left-aligned */
+.mantine-Table-tbody tr td:first-child {
+    text-align: left;
+    padding-left: 95px;
+}
+
+/* Ensure Group inside first column aligns properly */
+.mantine-Table-tbody tr td:first-child .mantine-Group-root {
+    justify-content: flex-start !important;
+}
+
+.mantine-Table-tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.mantine-Table-tbody tr:hover {
+    background: rgba(255, 255, 255, 0.04) !important;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--admin-gradient);
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide mobile view on desktop */
+.mobile-view {
+    display: none;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .users-container {
+        padding-bottom: 2rem;
+    }
+
+    /* Make header groups wrap on mobile */
+    .mantine-Group-root {
+        flex-wrap: wrap;
+        gap: 0.75rem !important;
+    }
+
+    /* Make container padding smaller on mobile */
+    .mantine-Container-root {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Hide table on mobile, show card layout instead */
+    .table-card .mantine-Table-table {
+        display: none;
+    }
+
+    /* Show mobile view on mobile */
+    .mobile-view {
+        display: block;
+    }
+
+    .table-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .table-toolbar>* {
+        width: 100%;
+    }
+
+    /* Mobile card layout */
+    .mobile-user-card {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .mobile-user-card:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-user-card:hover {
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    .mobile-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .mobile-card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .mobile-card-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .mobile-card-label {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+    }
+
+    .mobile-card-actions {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+    .mantine-Table-thead tr th,
+    .mantine-Table-tbody tr td {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .table-toolbar {
+        gap: 0.5rem;
+    }
+}
