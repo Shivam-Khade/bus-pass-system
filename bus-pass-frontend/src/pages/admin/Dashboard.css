@@ -1,0 +1,126 @@
+/* Admin Dashboard CSS */
+
+.admin-dashboard-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 1rem 0 3rem 0;
+  animation: fadeIn 0.8s ease-out;
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-header {
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.current-date {
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.stat-card {
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: rgba(26, 26, 46, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(26, 26, 46, 0.8) !important;
+  border-color: var(--admin-primary) !important;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, white 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-trend {
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.content-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.chart-placeholder {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  margin-top: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border);
+}
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+
+.bar {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px 4px 0 0;
+  transition: height 1s ease-out;
+  position: relative;
+}
+
+.bar:hover {
+  background: var(--admin-primary);
+  opacity: 0.8;
+}
+
+.bar.active {
+  background: var(--admin-primary);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+@media (max-width: 768px) {
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+}
