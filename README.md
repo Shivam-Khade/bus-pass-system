@@ -14,6 +14,8 @@ To address these gaps, this project introduces:
 
 📲 QR-based digital pass verification for quick, contactless, and tamper-proof validation.
 
+🎯 Automatically extracts last 4 digits of Aadhaar number
+
 This solution enhances flexibility, safety, and digital accessibility compared to the existing system.
 <br><br> 
 
