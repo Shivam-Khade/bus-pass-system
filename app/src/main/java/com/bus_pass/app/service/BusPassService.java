@@ -4,7 +4,6 @@ import com.bus_pass.app.dao.BusPassDao;
 import com.bus_pass.app.dto.BusPassApplyRequest;
 import com.bus_pass.app.model.BusPassApplication;
 import org.springframework.stereotype.Service;
-import com.bus_pass.app.service.OtpService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,12 +13,10 @@ public class BusPassService {
 
     private final BusPassDao busPassDao;
     private final com.bus_pass.app.dao.UserDao userDao;
-    private final OtpService otpService;
 
-    public BusPassService(BusPassDao busPassDao, com.bus_pass.app.dao.UserDao userDao, OtpService otpService) {
+    public BusPassService(BusPassDao busPassDao, com.bus_pass.app.dao.UserDao userDao) {
         this.busPassDao = busPassDao;
         this.userDao = userDao;
-        this.otpService = otpService;
     }
 
     public void apply(BusPassApplyRequest request) {

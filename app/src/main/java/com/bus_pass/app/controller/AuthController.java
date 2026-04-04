@@ -19,31 +19,21 @@ public class AuthController {
     private final com.bus_pass.app.util.JwtUtil jwtUtil;
 
     private final com.bus_pass.app.service.OtpService otpService;
-<<<<<<< HEAD
     private final com.bus_pass.app.service.OcrService ocrService;
     private final com.bus_pass.app.util.FileStorageUtil fileStorageUtil;
-=======
->>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
 
     public AuthController(UserService userService,
             org.springframework.security.authentication.AuthenticationManager authenticationManager,
             com.bus_pass.app.util.JwtUtil jwtUtil,
-<<<<<<< HEAD
             com.bus_pass.app.service.OtpService otpService,
             com.bus_pass.app.service.OcrService ocrService,
             com.bus_pass.app.util.FileStorageUtil fileStorageUtil) {
-=======
-            com.bus_pass.app.service.OtpService otpService) {
->>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
         this.userService = userService;
         this.authenticationManager = authenticationManager;
         this.jwtUtil = jwtUtil;
         this.otpService = otpService;
-<<<<<<< HEAD
         this.ocrService = ocrService;
         this.fileStorageUtil = fileStorageUtil;
-=======
->>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
     }
 
     @PostMapping("/register")
@@ -119,7 +109,6 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Upload failed: " + e.getMessage());
         }
     }
-<<<<<<< HEAD
 
     @PostMapping(value = "/extract-aadhaar", consumes = "multipart/form-data")
     public ResponseEntity<java.util.Map<String, String>> extractAadhaar(@org.springframework.web.bind.annotation.RequestParam("file") org.springframework.web.multipart.MultipartFile file) {
@@ -138,6 +127,4 @@ public class AuthController {
             return ResponseEntity.badRequest().body(java.util.Map.of("error", e.getMessage() != null ? e.getMessage() : "OCR Processing Failed"));
         }
     }
-=======
->>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
 }

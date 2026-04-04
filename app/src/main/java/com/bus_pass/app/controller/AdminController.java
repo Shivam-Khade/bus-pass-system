@@ -1,6 +1,5 @@
 package com.bus_pass.app.controller;
 
-import com.bus_pass.app.model.BusPassApplication;
 import com.bus_pass.app.model.User;
 import com.bus_pass.app.model.UserPass;
 import com.bus_pass.app.service.BusPassService;
