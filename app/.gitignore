@@ -29,7 +29,11 @@ hs_err_pid*
 .vscode/
 .project
 .classpath
+<<<<<<< HEAD
 .settings/
 
 # User uploads
 uploads/
+=======
+.settings/
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8

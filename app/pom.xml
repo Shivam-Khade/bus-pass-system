@@ -110,6 +110,15 @@
 			<version>4.9.0-0</version>
 		</dependency>
 
+<<<<<<< HEAD
+=======
+		<!-- Tess4j (Tesseract OCR wrapper) -->
+		<dependency>
+			<groupId>net.sourceforge.tess4j</groupId>
+			<artifactId>tess4j</artifactId>
+			<version>5.11.0</version>
+		</dependency>
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
 
 		<!-- Twilio SDK (SMS OTP delivery) -->
 		<dependency>

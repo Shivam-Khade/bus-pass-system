@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
+=======
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
 import { Group, Button, Text, Menu, Avatar, Badge, Burger, Drawer, Stack, Box, UnstyledButton } from "@mantine/core";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDisclosure } from "@mantine/hooks";
@@ -11,6 +14,7 @@ const AdminNavbar = () => {
   const user = getCurrentUser();
   const [opened, { toggle, close }] = useDisclosure(false);
 
+<<<<<<< HEAD
   const [pendingAppsCount, setPendingAppsCount] = useState(0);
   const [activeSosCount, setActiveSosCount] = useState(0);
 
@@ -48,6 +52,8 @@ const AdminNavbar = () => {
     }
   };
 
+=======
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
   const handleLogout = () => {
     logout();
   };
@@ -59,10 +65,17 @@ const AdminNavbar = () => {
 
   const navLinks = [
     { label: "Dashboard", path: "/admin", icon: IconLayoutDashboard },
+<<<<<<< HEAD
     { label: "Applications", path: "/admin/applications", icon: IconFileText, count: pendingAppsCount },
     { label: "Passes", path: "/admin/passes", icon: IconTicket },
     { label: "Users", path: "/admin/users", icon: IconUsers },
     { label: "SOS Alerts", path: "/admin/sos-alerts", icon: IconAlertTriangle, count: activeSosCount },
+=======
+    { label: "Applications", path: "/admin/applications", icon: IconFileText },
+    { label: "Passes", path: "/admin/passes", icon: IconTicket },
+    { label: "Users", path: "/admin/users", icon: IconUsers },
+    { label: "SOS Alerts", path: "/admin/sos-alerts", icon: IconAlertTriangle },
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
   ];
 
   const isActive = (path) => {
@@ -70,6 +83,7 @@ const AdminNavbar = () => {
     return location.pathname.includes(path);
   };
 
+<<<<<<< HEAD
   const getLinkRightSection = (count) => {
     if (count > 0) {
       return (
@@ -87,6 +101,8 @@ const AdminNavbar = () => {
     return null;
   };
 
+=======
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
   return (
     <div style={{
       width: "100%",
@@ -143,7 +159,10 @@ const AdminNavbar = () => {
                   color={isActive(link.path) ? "teal" : "gray"}
                   onClick={() => navigate(link.path)}
                   leftSection={<link.icon size={16} stroke={1.5} />}
+<<<<<<< HEAD
                   rightSection={getLinkRightSection(link.count)}
+=======
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
                   size="sm"
                   styles={{
                     root: {
@@ -256,6 +275,7 @@ const AdminNavbar = () => {
                 color={isActive(link.path) ? "teal" : "gray"}
                 fullWidth
                 onClick={() => navigateTo(link.path)}
+<<<<<<< HEAD
                 justify="space-between"
                 leftSection={
                   <Group gap="sm">
@@ -264,6 +284,10 @@ const AdminNavbar = () => {
                   </Group>
                 }
                 rightSection={getLinkRightSection(link.count)}
+=======
+                justify="flex-start"
+                leftSection={<link.icon size={18} />}
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
                 size="md"
                 styles={{
                   root: {
@@ -272,6 +296,10 @@ const AdminNavbar = () => {
                   },
                 }}
               >
+<<<<<<< HEAD
+=======
+                {link.label}
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
               </Button>
             ))}
 
@@ -294,4 +322,8 @@ const AdminNavbar = () => {
   );
 };
 
+<<<<<<< HEAD
 export default AdminNavbar;
+=======
+export default AdminNavbar;
+>>>>>>> 1e11b5c9e86d94c810963d207a0976db5594c6e8
