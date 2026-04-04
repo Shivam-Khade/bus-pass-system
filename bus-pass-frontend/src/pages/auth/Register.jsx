@@ -37,7 +37,7 @@ import {
 import { register } from "../../api/auth";
 import axios from "axios";
 
-const API_BASE = "http://localhost:8082";
+const API_BASE = import.meta.env.VITE_BASE_URL || "http://localhost:8082";
 
 // ─── Step definitions ────────────────────────────────────────────────────────
 const STEPS = [
