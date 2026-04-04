@@ -1,11 +1,13 @@
 package com.bus_pass.app.config;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
+@Order(1)
 public class DatabaseFixer implements CommandLineRunner {
 
     private final JdbcTemplate jdbcTemplate;
@@ -17,6 +19,37 @@ public class DatabaseFixer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Checking database schema integrity...");
+
+        // 0. Ensure base tables exist before anything else
+        String createUsersSql = """
+                CREATE TABLE IF NOT EXISTS users (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    name VARCHAR(100) NOT NULL,
+                    email VARCHAR(100) UNIQUE NOT NULL,
+                    password VARCHAR(255) NOT NULL,
+                    role VARCHAR(20) NOT NULL,
+                    phone VARCHAR(15),
+                    active BOOLEAN DEFAULT TRUE,
+                    photo_url VARCHAR(255) DEFAULT NULL,
+                    adhar_url VARCHAR(255) DEFAULT NULL,
+                    bonafide_url VARCHAR(255) DEFAULT NULL,
+                    address TEXT DEFAULT NULL,
+                    aadhaar_number VARCHAR(255) DEFAULT NULL
+                );
+                """;
+        jdbcTemplate.execute(createUsersSql);
+
+        String createAppsSql = """
+                CREATE TABLE IF NOT EXISTS bus_pass_applications (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    user_id INT NOT NULL,
+                    pass_type VARCHAR(20) NOT NULL,
+                    status VARCHAR(20) NOT NULL DEFAULT 'PENDING',
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY (user_id) REFERENCES users(id)
+                );
+                """;
+        jdbcTemplate.execute(createAppsSql);
 
         // 1. Check and Fix 'payments' table
         try {

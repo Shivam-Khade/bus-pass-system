@@ -5,11 +5,13 @@ import com.bus_pass.app.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 @Configuration
 public class AdminInitializer {
 
     @Bean
+    @Order(2)
     public CommandLineRunner initAdmin(UserService userService) {
         return args -> {
             try {
