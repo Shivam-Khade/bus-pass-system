@@ -9,6 +9,12 @@ import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
 import "./index.css";
 
+// Keep Render backend alive (free tier sleeps after 15 min inactivity)
+const BASE_URL = import.meta.env.VITE_BASE_URL || "http://localhost:8082";
+setInterval(() => {
+  fetch(`${BASE_URL}/auth/login`, { method: "OPTIONS" }).catch(() => {});
+}, 10 * 60 * 1000); // every 10 minutes
+
 const theme = createTheme({
   fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
   primaryColor: "violet",
