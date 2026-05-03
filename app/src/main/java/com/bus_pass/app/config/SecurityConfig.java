@@ -43,7 +43,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/auth/profile").authenticated()
-                        .requestMatchers("/auth/**", "/files/**").permitAll()
+                        .requestMatchers("/auth/**", "/files/**", "/error").permitAll()
                         .requestMatchers("/api/sos/**").permitAll()
                         .requestMatchers("/api/pass/apply").permitAll()
                         .requestMatchers("/auth/extract-aadhaar", "/auth/send-otp-phone", "/auth/upload-photo").permitAll()

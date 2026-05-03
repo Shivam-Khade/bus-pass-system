@@ -75,4 +75,10 @@ public class BusPassController {
         busPassService.updateStatus(id, status);
         return ResponseEntity.ok("Status updated successfully");
     }
+
+    @DeleteMapping("/admin/{id}")
+    public ResponseEntity<String> deleteApplication(@PathVariable int id) {
+        busPassService.deleteApplication(id);
+        return ResponseEntity.ok("Application deleted successfully");
+    }
 }

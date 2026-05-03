@@ -133,4 +133,11 @@ public class BusPassDao {
             return app;
         });
     }
+
+    public void deleteApplication(int id) {
+        // delete payments and user passes first to avoid foreign key constraint violations
+        jdbcTemplate.update("DELETE FROM payments WHERE application_id = ?", id);
+        jdbcTemplate.update("DELETE FROM user_passes WHERE application_id = ?", id);
+        jdbcTemplate.update("DELETE FROM bus_pass_applications WHERE id = ?", id);
+    }
 }

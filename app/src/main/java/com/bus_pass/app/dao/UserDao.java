@@ -33,7 +33,7 @@ public class UserDao {
     }
 
     public List<User> findAll() {
-        String sql = "SELECT id, name, email, role, active, photo_url, phone, address, adhar_url, bonafide_url, aadhaar_number FROM users";
+        String sql = "SELECT id, name, email, role, active, photo_url, phone, address, adhar_url, bonafide_url, aadhaar_number FROM users WHERE active = true";
 
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             User u = new User();

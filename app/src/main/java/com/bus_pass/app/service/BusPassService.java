@@ -59,4 +59,8 @@ public class BusPassService {
                 .filter(app -> app.getUserId() == userId)
                 .collect(Collectors.toList());
     }
+
+    public void deleteApplication(int id) {
+        busPassDao.deleteApplication(id);
+    }
 }

@@ -97,6 +97,50 @@ const Applications = () => {
     }
   };
 
+  const deleteApplication = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this application?")) return;
+
+    try {
+      const BASE_URL = import.meta.env.VITE_BASE_URL || "http://localhost:8082";
+      const response = await fetch(`${BASE_URL}/api/pass/admin/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${currentUser?.token}`
+        }
+      });
+
+      if (response.ok) {
+        notifications.show({
+          color: "green",
+          title: "Success",
+          message: "Application deleted successfully",
+        });
+        fetchApplications();
+      }
+    } catch (error) {
+      notifications.show({
+        color: "red",
+        title: "Error",
+        message: "Failed to delete application",
+      });
+    }
+  };
+
+  const handleExport = () => {
+    if (!applications.length) return;
+    const headers = ["ID", "Applicant", "Email", "Pass Type", "Status"];
+    const rows = applications.map(app => [app.id, `"${app.userName || ''}"`, app.userEmail, app.passType, app.status]);
+    const csvContent = [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", `applications_export_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const viewDocument = (url) => {
     if (!url) {
       notifications.show({
@@ -143,7 +187,7 @@ const Applications = () => {
             <Text c="dimmed" size="sm">Review and process student bus pass requests</Text>
           </div>
           <Group>
-            <Button leftSection={<IconDownload size={16} />} variant="default">Export</Button>
+            <Button leftSection={<IconDownload size={16} />} variant="default" onClick={handleExport}>Export</Button>
             <Button leftSection={<IconRefresh size={16} />} onClick={fetchApplications} color="teal">Refresh</Button>
           </Group>
         </Group>
@@ -280,7 +324,7 @@ const Applications = () => {
                                   Reset Status
                                 </Menu.Item>
                                 <Menu.Divider />
-                                <Menu.Item color="red" leftSection={<IconX size={14} />}>
+                                <Menu.Item color="red" leftSection={<IconX size={14} />} onClick={() => deleteApplication(app.id)}>
                                   Delete Application
                                 </Menu.Item>
                               </Menu.Dropdown>
