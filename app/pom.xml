@@ -119,6 +119,13 @@
 			<version>10.4.1</version>
 		</dependency>
 
+		<!-- Cloudinary SDK -->
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-http44</artifactId>
+			<version>1.36.0</version>
+		</dependency>
+
 		<!-- Spring Boot Test (JUnit 5, @SpringBootTest, etc.) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

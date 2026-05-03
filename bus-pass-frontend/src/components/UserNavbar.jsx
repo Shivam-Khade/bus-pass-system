@@ -24,7 +24,7 @@ const UserNavbar = () => {
     }
     // Set initial photo from cached user data
     if (user?.photoUrl) {
-      setPhotoSrc(`${BASE_URL}/files/${user.photoUrl}`);
+      setPhotoSrc(user.photoUrl.startsWith("http") ? user.photoUrl : `${BASE_URL}/files/${user.photoUrl}`);
     }
   }, []);
 
@@ -36,7 +36,7 @@ const UserNavbar = () => {
       if (response.ok) {
         const data = await response.json();
         if (data.photoUrl) {
-          setPhotoSrc(`${BASE_URL}/files/${data.photoUrl}`);
+          setPhotoSrc(data.photoUrl.startsWith("http") ? data.photoUrl : `${BASE_URL}/files/${data.photoUrl}`);
           // Update localStorage so the photo persists
           const stored = JSON.parse(localStorage.getItem("user") || "{}");
           stored.photoUrl = data.photoUrl;

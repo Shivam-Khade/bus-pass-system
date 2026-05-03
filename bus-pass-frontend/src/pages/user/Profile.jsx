@@ -101,7 +101,7 @@ const Profile = ({ isModal = false, onClose }) => {
         <div className="profile-cover"></div>
         <div className="profile-avatar-wrapper">
           <Avatar
-            src={user.photoUrl ? `${BASE_URL}/files/${user.photoUrl}` : null}
+            src={user.photoUrl ? (user.photoUrl.startsWith("http") ? user.photoUrl : `${BASE_URL}/files/${user.photoUrl}`) : null}
             alt={user.name}
             size={isModal ? 100 : 120}
             radius={120}

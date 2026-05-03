@@ -416,7 +416,7 @@ const MyPass = () => {
               <Group align="flex-start" wrap="nowrap">
                 {pass.photoUrl ? (
                   <Image
-                    src={`${import.meta.env.VITE_BASE_URL || "http://localhost:8082"}/files/${pass.photoUrl}`}
+                    src={pass.photoUrl?.startsWith("http") ? pass.photoUrl : `${import.meta.env.VITE_BASE_URL || "http://localhost:8082"}/files/${pass.photoUrl}`}
                     w={80}
                     h={100}
                     radius="sm"

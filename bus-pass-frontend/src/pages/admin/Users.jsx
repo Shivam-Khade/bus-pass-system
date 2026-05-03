@@ -228,7 +228,7 @@ const Users = () => {
                           <Avatar
                             color="blue"
                             radius="xl"
-                            src={user.photoUrl ? `${BASE_URL}/files/${user.photoUrl}` : null}
+                            src={user.photoUrl ? (user.photoUrl.startsWith("http") ? user.photoUrl : `${BASE_URL}/files/${user.photoUrl}`) : null}
                           >
                             {user.name?.charAt(0)}
                           </Avatar>
@@ -392,7 +392,7 @@ const Users = () => {
             )}
             {aadhaarModal.user.adharUrl ? (
               <Image
-                src={`${BASE_URL}/files/${aadhaarModal.user.adharUrl}`}
+                src={aadhaarModal.user.adharUrl.startsWith("http") ? aadhaarModal.user.adharUrl : `${BASE_URL}/files/${aadhaarModal.user.adharUrl}`}
                 radius="md"
                 fit="contain"
                 style={{ border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)' }}
